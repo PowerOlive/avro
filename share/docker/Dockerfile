@@ -74,7 +74,7 @@ RUN wget -qO- https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | ap
 # Install a maven release  -------------------------------------------
 # Inspired from https://github.com/apache/accumulo-docker/blob/master/Dockerfile#L53
 
-ENV MAVEN_VERSION 3.6.3
+ENV MAVEN_VERSION 3.8.1
 ENV APACHE_DIST_URLS \
   https://www.apache.org/dyn/closer.cgi?action=download&filename= \
   # if the version is outdated (or we're grabbing the .asc file), we might have to pull from the dist/archive :/
@@ -101,8 +101,8 @@ RUN set -eux; \
   rm "maven.tar.gz"
 ENV PATH="/opt/maven/bin:${PATH}"
 
-# Install nodejs 6
-RUN curl -sSL https://deb.nodesource.com/setup_10.x \
+# Install nodejs
+RUN curl -sSL https://deb.nodesource.com/setup_12.x \
   | bash - \
  && apt-get -qqy install nodejs \
  && apt-get -qqy clean \
